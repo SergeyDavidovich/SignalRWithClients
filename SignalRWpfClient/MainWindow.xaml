@@ -10,7 +10,10 @@
     Height="450"
     mc:Ignorable="d">
     <StackPanel>
-        <Button HorizontalAlignment="Left" Command="{Binding ConnectCommand}" Content="Connect" Width="200" Height="30" Margin="5"></Button>
+        <StackPanel Orientation="Horizontal">
+        <Button HorizontalAlignment="Left" Command="{Binding ConnectCommand}" Content="Connect" Width="100" Height="30" Margin="5"></Button>
+            <Button Content="Clear" Command="{Binding ClearCommand}" Width="60" Height="30"/>
+        </StackPanel>
         <DataGrid ItemsSource="{Binding Products}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn
@@ -18,7 +21,7 @@
                     Binding="{Binding Id}"
                     Header="Id" />
                 <DataGridTextColumn Width="*" Binding="{Binding Name}" Header="Name" />
-                <DataGridTextColumn Width="*" Binding="{Binding Quantity}" Header="Qunatity" />
+                <DataGridTextColumn Width="*" Binding="{Binding Quantity}" Header="Quantity" />
                 <DataGridTextColumn Width="*" Binding="{Binding Price}" Header="Price" />
             </DataGrid.Columns>
         </DataGrid>

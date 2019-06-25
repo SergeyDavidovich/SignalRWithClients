@@ -20,7 +20,7 @@ namespace SignalRWpfClient.ViewModels
             //build connection with products hub
             _hubConnection = new HubConnectionBuilder().WithUrl("http://localhost:49970/ProductsHub").Build();
             ConnectCommand = new RelayCommand(s => true, s => Connect());
-
+            ClearCommand = new RelayCommand(s => true, s => Products.Clear());
         }
         private async void Connect()
         {
@@ -31,6 +31,7 @@ namespace SignalRWpfClient.ViewModels
             await _hubConnection.StartAsync();
         }
         public RelayCommand ConnectCommand { get; set; }
+        public RelayCommand ClearCommand { get; set; }
         private ObservableCollection<ProductViewModel> _products = new ObservableCollection<ProductViewModel>();
         public ObservableCollection<ProductViewModel> Products
         {
